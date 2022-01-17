@@ -48,7 +48,10 @@ const reducer = (state = initialState, action) => {
       };
     case CELL_CLICK:
       const newGrid = state.grid.slice();
-      newGrid[action.y][action.x] = 1
+      if(newGrid[action.y][action.x] == 0)
+        newGrid[action.y][action.x] = 1
+      else
+        newGrid[action.y][action.x] = 0
       return {
         ...state,
         grid: newGrid,
